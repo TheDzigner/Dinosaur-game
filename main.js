@@ -47,6 +47,7 @@ let checkDead = setInterval(function(){
   let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue('top'));
   let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
   if (blockLeft > 0 && blockLeft < 95 && dinoTop >= 155 ) {
+    navigator.vibrate(30)
     btnJump.innerHTML = 'Game over!'
     window.location.reload();
   }
