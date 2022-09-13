@@ -1,0 +1,139 @@
+@font-face{
+  font-family: Abel-Regular ;
+  src: url("/font_family/Kanit-ExtraLightItalic.ttf");
+}
+
+*
+{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+
+body {
+    font-size: 15pt;
+    transition:all .2s ease-in-out ;
+    max-width:600px;
+    min-height:100vh;
+    margin:auto auto auto auto;
+}
+
+header
+{
+  position: fixed;
+  top:0;
+  padding:10px 20px;
+  left:0;
+  width:100%;
+  max-width:600px;
+   margin:auto auto auto auto;
+   display:flex;
+   justify-content:space-around ;
+   align-items:center ;
+   z-index :10;
+}
+
+header input 
+{
+  width:140px;
+  height:30px;
+  outline:none ;
+  background:transparent;
+  text-align:center ;
+  border:1px solid transparent;
+  font-size:1em ;
+   font-family: Abel-Regular ;
+   font-weight:700 ;
+}
+
+.game 
+{
+  width:358px;
+  height:250px;
+  margin:70px auto 0 ;
+  position:relative ;
+  overflow: hidden ;
+  z-index:-1;
+}
+
+
+
+
+#dino
+{
+  position:relative ;
+  width:95px;
+  height:80px;
+  top:155px;
+  background:url("/images/dino.gif");
+  background-size: cover;
+  background-position: center ;
+  transform:rotateY(180deg);
+  z-index:2;
+}
+
+
+#dino.jump 
+{
+  animation: jump 400ms  linear infinite ;
+  -webkit-animation: jump 400ms  linear infinite;
+  -o-animation: jump 400ms  linear infinite;
+}
+
+@keyframes jump
+{
+  0%{
+    top: 155px;
+  }70%{
+    top:10px;
+  }80%{
+    top: 150px;
+}100%{
+  top: 155px;
+}
+  
+} 
+
+
+#block 
+{
+  position :relative;
+  width:45px;
+  height:85px;
+  top:70px;
+  left:310px;
+  background:url("/images/block.jpg");
+  background-size: cover;
+  background-position: center ;
+  z-index:1;
+}
+#block.slide
+{
+  -webkit-animation: slide_block  1.3s linear infinite;
+  -o-animation: slide_block  1.3s linear infinite;
+  animation: slide_block  1.3s linear infinite;
+}
+@keyframes slide_block
+{
+  0%{
+    left: 340px;
+  }100%{
+    left:-310px;
+  }
+}
+
+.button 
+{
+  margin:70px auto 0 ;
+  width:80%;
+  text-align:center ;
+}
+
+.button button 
+{
+  padding:10px 32px ;
+  border:1px solid ghostwhite ;
+  background:#f1edef;
+  font-size:1.2em ;
+}
