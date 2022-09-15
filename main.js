@@ -5,17 +5,20 @@ const btnJump = document.getElementById('btn')
 const defaultName = 'John Doe'
 const defaultScore = 0
 const inputName = document.getElementById('playerName')
-score = 0
-var myInterval ;
-
+let score = 0
 
 inputName.addEventListener('input',function(){
-  localStorage.setItem('playerName',this.value)
+  if (inputName.value == ' ') {
+    inputName.value = defaultName
+  } else {
+     localStorage.setItem('playerName',this.value)
+     inputName.value = this.value
+  }
 })
 
 window.onload = () =>{
   const getName = localStorage.getItem('playerName')
-  getName == null?inputName.value = defaultName : inputName.value = getName
+  getName == null || getName == '' || getName == ' '?inputName.value = defaultName : inputName.value = getName
 const getScore = localStorage.getItem('score')
 getScore == null?myscore.innerHTML = 'Score :' + defaultScore :    myscore.innerHTML = 'Score :' + getScore 
 }
@@ -28,13 +31,10 @@ function jumpDino(){
       block.classList.add('slide')
     },500)
     btnJump.innerHTML = 'Jump !'
-     myInterval = setInterval(function(){
-  score++
-  myscore.innerHTML = 'Score :' + score
-  localStorage.setItem('score', score)
-
-},1000)
-
+    var myInterval = setInterval(function(){
+      score++
+      myscore.innerHTML = 'Score :' + score
+    },1000)
     setTimeout(function(){
       dino.classList.remove('jump')
     },400)
@@ -47,9 +47,9 @@ let checkDead = setInterval(function(){
   let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue('top'));
   let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
   if (blockLeft > 0 && blockLeft < 95 && dinoTop >= 155 ) {
-    navigator.vibrate(30)
     btnJump.innerHTML = 'Game over!'
     window.location.reload();
+    block.style.animation = 'none'
   }
 },10)
 
