@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jump Dino game, avoid the building">
-  <title>Jump Dino</title>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+  <title>Avoid the building</title>
   
   <!-- HTML -->
   
@@ -19,23 +21,27 @@
 <body>
   <!-- Project -->
   
-  <header>
-    <input type="text" value="" id="playerName">
-    <p id="score">0</p>
+    <header>
+    <input type="text" value="" maxlength="7" id="playerName">
+    <p id="score"></p>
   </header>
   
   
   
   <div class="game">
-    <div class="cloud"></div>
    <div id="dino"></div>
    <div id="block"> </div>
   </div>
   
   <div class="button">
-    <button id="btn">Start!</button>
+    <button id="btn">Tape to start!</button>
+    <span class="material-icons-round" onclick="takeshot()">
+       send_to_mobile
+     </span>
   </div>
-  
+   
+
+
   <script src="main.js"></script>
 </body>
 </html>
