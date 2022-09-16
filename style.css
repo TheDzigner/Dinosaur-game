@@ -128,12 +128,24 @@ header input
   margin:70px auto 0 ;
   width:80%;
   text-align:center ;
+  display: flex ;
+  justify-content:center ;
+  align-items :center ;
 }
 
 .button button 
 {
   padding:10px 32px ;
-  border:1px solid ghostwhite ;
-  background:#f1edef;
-  font-size:1.2em ;
+  border:1px solid transparent ;
+  background:transparent ;
+  font-size:1em ;
+  font-family: sans-serif ;
+  font-weight:200;
 }
+
+.button span 
+{
+  display:inline-block ;
+  margin:10px ;
+}
+
