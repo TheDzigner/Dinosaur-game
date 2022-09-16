@@ -20,7 +20,7 @@ window.onload = () =>{
   const getName = localStorage.getItem('playerName')
   getName == null || getName == '' || getName == ' '?inputName.value = defaultName : inputName.value = getName
 const getScore = localStorage.getItem('score')
-getScore == null?myscore.innerHTML = 'Score :' + defaultScore :    myscore.innerHTML = 'Score :' + getScore 
+getScore == null?myscore.innerHTML = 'Score :' + ' ' + defaultScore :  myscore.innerHTML = 'Score :' + ' ' + getScore 
 }
 
 
@@ -33,7 +33,13 @@ function jumpDino(){
     btnJump.innerHTML = 'Jump !'
     var myInterval = setInterval(function(){
       score++
-      myscore.innerHTML = 'Score :' + score
+      if (score == 100) {
+        setTimeout(function(){
+             block.style.animation = ' slide_block  1.2s  linear infinite'
+        },700)
+      }
+      myscore.innerHTML = 'Score :' +' ' + score
+      localStorage.setItem('score',score)
     },1000)
     setTimeout(function(){
       dino.classList.remove('jump')
@@ -53,4 +59,11 @@ let checkDead = setInterval(function(){
   }
 },10)
 
-
+function takeshot(){
+  html2canvas(document.body).then((canvas)=>{
+    let a = document.createElement('a')
+    a.download = 'avoid the building.png'
+    a.href = canvas.toDataURL('image/png')
+    a.click();
+  })
+}
